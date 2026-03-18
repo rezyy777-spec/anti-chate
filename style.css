@@ -1,79 +1,29 @@
-/* تصميم وحشي - Monochrome Brutalist */
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #000;
-    color: #fff;
-    display: flex;
-    height: 100vh;
-}
+/* Minimalist Brutalist Design */
+body { margin: 0; background: #000; color: #fff; font-family: sans-serif; display: flex; height: 100vh; }
+.sidebar { width: 260px; border-left: 2px solid #222; padding: 30px; }
+.logo { font-size: 2.2rem; border-bottom: 4px solid #fff; margin-bottom: 40px; }
 
-.sidebar {
-    width: 250px;
-    background-color: #000;
-    border-left: 2px solid #333; /* حدود بسيطة بدلاً من الظلال */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
+.server-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
 
-.logo {
-    font-size: 2rem;
-    font-weight: 900;
-    letter-spacing: 5px;
-    margin-bottom: 50px;
-    border-bottom: 5px solid #fff;
-}
-
-nav a {
-    color: #888;
-    text-decoration: none;
-    padding: 15px 0;
-    display: block;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-nav a.active, nav a:hover {
-    color: #fff;
-    border-right: 3px solid #fff;
-    padding-right: 10px;
-}
-
-.content {
-    flex: 1;
-    padding: 40px;
-    overflow-y: auto;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin: 40px 0;
-}
-
-.stat-card {
+.server-card {
     border: 2px solid #333;
     padding: 20px;
-    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
 }
 
-.stat-card h3 { font-size: 0.9rem; color: #888; }
-.stat-card p { font-size: 2.5rem; font-weight: bold; margin: 10px 0; }
+.server-card:hover { border-color: #fff; transform: translateY(-5px); }
+.server-card.offline { opacity: 0.5; cursor: not-allowed; }
 
-.stat-card.danger { border-color: #ff0000; color: #ff0000; }
+.server-status { width: 12px; height: 12px; border-radius: 50%; position: absolute; top: 15px; left: 15px; }
+.server-status.online { background: #00ff00; box-shadow: 0 0 10px #00ff00; }
+.server-status.offline { background: #ff0000; }
 
-.log-container {
-    background: #111;
-    border: 1px solid #333;
-    height: 300px;
-    padding: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    overflow-y: scroll;
-}
+.view-btn { background: #fff; color: #000; border: none; padding: 8px 15px; margin-top: 15px; font-weight: bold; width: 100%; cursor: pointer; }
 
-.log-entry { margin-bottom: 10px; border-bottom: 1px solid #222; padding-bottom: 5px; }
-.log-entry.danger { color: #ff0000; font-weight: bold; }
+.back-btn { background: none; color: #888; border: 1px solid #333; padding: 5px 15px; cursor: pointer; margin-bottom: 20px; }
+.back-btn:hover { color: #fff; border-color: #fff; }
 
-.online { color: #00ff00; font-weight: bold; }
+.log-item { padding: 10px; border-bottom: 1px solid #111; font-family: monospace; color: #aaa; }
+.log-item.danger { color: #ff0000; background: #1a0000; }
