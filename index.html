@@ -2,49 +2,61 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>LifeShield | Monitoring System</title>
+    <title>LifeShield | Central Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="sidebar">
         <h2 class="logo">REZYY</h2>
         <nav>
-            <a href="#" class="active">الرئيسية</a>
-            <a href="#">اللاعبين</a>
-            <a href="#">سجل الحظر</a>
-            <a href="#">الإعدادات</a>
+            <a href="#" class="active" onclick="showView('servers')">السيرفرات المتصلة</a>
+            <a href="#" onclick="showView('global-logs')">السجلات العامة</a>
+            <a href="#">الإعدادات المركزية</a>
         </nav>
-        <div class="status-indicator">الحالة: <span class="online">متصل</span></div>
+        <div class="status-indicator">الشبكة: <span class="online">نشطة</span></div>
     </div>
 
     <main class="content">
-        <header>
-            <h1>نظام مراقبة LifeShield</h1>
-            <div class="server-info">Server ID: #1293</div>
-        </header>
+        <section id="servers-view">
+            <header>
+                <h1>المراقبة المركزية لـ LifeShield</h1>
+                <p>اختر سيرفر لمراجعة النشاط الحي</p>
+            </header>
 
-        <section class="stats-grid">
-            <div class="stat-card">
-                <h3>إجمالي اللاعبين</h3>
-                <p id="player-count">0</p>
-            </div>
-            <div class="stat-card danger">
-                <h3>إجمالي البلاغات (Flags)</h3>
-                <p id="flag-count">0</p>
-            </div>
-            <div class="stat-card">
-                <h3>استهلاك النظام</h3>
-                <p>0.01ms</p>
+            <div class="server-grid" id="server-list">
+                <div class="server-card" onclick="selectServer('Grand RP')">
+                    <div class="server-status online"></div>
+                    <h3>Grand RP #1</h3>
+                    <p>اللاعبين: 120/128</p>
+                    <p>البلاغات اليوم: 14</p>
+                    <button class="view-btn">دخول للمراقبة</button>
+                </div>
+                
+                <div class="server-card offline">
+                    <div class="server-status offline"></div>
+                    <h3>Algeria PVP</h3>
+                    <p>اللاعبين: 0/64</p>
+                    <p>الحالة: غير متصل</p>
+                </div>
             </div>
         </section>
 
-        <section class="logs-section">
-            <h3>السجلات الحية (Live Logs)</h3>
-            <div class="log-container" id="log-list">
-                <div class="log-entry">[15:30] نظام التوكنات بدأ بنجاح...</div>
-                <div class="log-entry danger">[15:32] تم رصد محاولة Speedhack من اللاعب: Rezyy</div>
+        <section id="details-view" style="display:none;">
+            <header>
+                <button onclick="showView('servers')" class="back-btn">← العودة للقائمة</button>
+                <h1 id="selected-server-name">اسم السيرفر المختارة</h1>
+            </header>
+            
+            <div class="logs-container">
+                <h3>آخر البلاغات الحية لهذا السيرفر:</h3>
+                <div class="log-list" id="server-logs">
+                    <div class="log-item">[12:05] تم رصد محاولة Aimbot - اللاعب: ID 44</div>
+                    <div class="log-item danger">[12:07] محاولة حقن سكربت (Executor) - تم المنع</div>
+                </div>
             </div>
         </section>
     </main>
+
+    <script src="dashboard.js"></script>
 </body>
 </html>
