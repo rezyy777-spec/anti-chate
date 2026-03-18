@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>LifeShield | Monitoring System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2 class="logo">REZYY</h2>
+        <nav>
+            <a href="#" class="active">الرئيسية</a>
+            <a href="#">اللاعبين</a>
+            <a href="#">سجل الحظر</a>
+            <a href="#">الإعدادات</a>
+        </nav>
+        <div class="status-indicator">الحالة: <span class="online">متصل</span></div>
+    </div>
+
+    <main class="content">
+        <header>
+            <h1>نظام مراقبة LifeShield</h1>
+            <div class="server-info">Server ID: #1293</div>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>إجمالي اللاعبين</h3>
+                <p id="player-count">0</p>
+            </div>
+            <div class="stat-card danger">
+                <h3>إجمالي البلاغات (Flags)</h3>
+                <p id="flag-count">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>استهلاك النظام</h3>
+                <p>0.01ms</p>
+            </div>
+        </section>
+
+        <section class="logs-section">
+            <h3>السجلات الحية (Live Logs)</h3>
+            <div class="log-container" id="log-list">
+                <div class="log-entry">[15:30] نظام التوكنات بدأ بنجاح...</div>
+                <div class="log-entry danger">[15:32] تم رصد محاولة Speedhack من اللاعب: Rezyy</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
